@@ -1,0 +1,22 @@
+<Config>
+	<remove xpath="/controls/active_buff_entry"/>
+	<remove xpath="/controls/player_stats_entry"/>
+
+	<append xpath="/controls">
+		<active_buff_entry>
+			<panel depth="0" controller="ActiveBuffEntry" style="press" sound="[recipe_click]" on_hover="true" disableautobackground="true" on_scroll="true" sound_play_on_hover="[default_hover]">
+				<sprite depth="2" name="backgroundMain" sprite="menu_empty3px" pos="-3,3" width="0" height="0" color="[black]" type="sliced" fillcenter="false" />
+				<sprite depth="0" name="background" color="[darkGrey]" type="sliced" height="0" width="0" pos="0,0" />
+				<!--sprite depth="2" name="Icon" sprite="{bufficon|once}" color="{buffcolor}" style="icon48px" pos="35,-35" pivot="center"/-->
+			</panel>
+		</active_buff_entry>
+		<player_stats_entry>
+			<rect height="33">
+				<sprite depth="8" sprite="menu_empty3px" height="33" color="[black]" type="sliced" fillcenter="false" />
+				<sprite depth="1" color="${backgroundcolor}" type="sliced" />
+				<label depth="3" pos="10,-5" width="255" font_size="26" text="${textcontent}" justify="left" color="[white]" />
+				<label depth="3" pos="343,-5" width="78" font_size="26" text="${valuecontent}" justify="right" color="[selectedColor]" pivot="topright" />
+			</rect>
+		</player_stats_entry>
+	</append>
+</Config>

@@ -1,0 +1,86 @@
+<Config>
+	<remove xpath="/windows/window[@name='CharacterFrameWindow']"/>
+	<remove xpath="/windows/window[@name='ActiveBuffsWindow']"/>
+	
+    <append xpath="/windows">
+		<window name="CharacterFrameWindow" width="677" height="736" panel="Left" controller="CharacterFrameWindow" defaultcolor="[white]" hoveredcolor="[selectedColor]" cursor_area="true" >
+			<panel name="header" height="43" depth="1" backgroundspritename="ui_game_panel_header">
+				<sprite depth="2" name="windowIcon" style="icon32px" pos="5,-5" sprite="ui_game_symbol_character"/>
+				<label depth="2" name="characterName" pos="42,-6" width="150" height="32" text="" font_size="32" />
+				<sprite depth="2" name="windowIcon" width="26" height="26" pos="323,-8" sprite="ui_game_symbol_trophy" />
+				<label depth="2" name="levelNumber" pos="363,-6" width="220" height="32" text="" />
+				<button depth="4" name="statButton" style="icon30px, press" pos="596,-10" sprite="ui_game_symbol_ping" tooltip="Stats" sound="[paging_click]" tooltip_key="lblCharacterStats1" selected="true"/>
+				<button depth="4" name="coreStatButton" style="icon30px, press" pos="636,-10" sprite="ui_game_symbol_trophy" tooltip="Stats" sound="[paging_click]" tooltip_key="lblCharacterStats2" />
+			</panel>
+			<panel name="previewFrameSDCS" depth="0" pos="0,-46" width="327" on_press="true" on_hover="true" disableautobackground="true" snap="false" gamepad_selectable="false">
+				<rect>
+					<sprite depth="6" name="backgroundMain" sprite="menu_empty3px" pos="0,0" width="327" height="613" color="[black]" type="sliced" fillcenter="false" />
+					<sprite depth="1" color="[darkGrey]" type="sliced" width="327" height="613"/>
+					<texture depth="2" name="playerPreviewSDCS" material="Materials/Transparent Colored" size="327,611" globalopacity="false"/>
+				</rect>
+			</panel>
+			<panel name="equipment" depth="10" pos="3, -659" width="292" height="70" disableautobackground="true" >
+				<grid name="inventory" rows="1" cols="4" cell_width="81" cell_height="70" controller="EquipmentStackGrid" repeat_content="true">
+					<equipment_stack_sdcs name="0"/>
+				</grid>
+			</panel>
+			<grid visible="{#!showcore}" depth="0" pos="324,-46" width="353" cols="1" cell_height="30" repeat_content="false" arrangement="vertical">
+				<player_stats_entry backgroundcolor="[darkestGrey]" textcontent="{playerhealthtitle|once}" valuecontent="{playerhealth}/{playermaxhealth}" />
+				<player_stats_entry backgroundcolor="[darkGrey]"    textcontent="{playerstaminatitle|once}" valuecontent="{playerstamina}/{playermaxstamina}" />
+				<player_stats_entry backgroundcolor="[darkestGrey]" textcontent="{playerfoodtitle|once}" valuecontent="{playermodifiedcurrentfood}/{playerfoodmax}" />
+				<player_stats_entry backgroundcolor="[darkGrey]"    textcontent="{playerwatertitle|once}" valuecontent="{playermodifiedcurrentwater}/{playerwatermax}" />
+				<player_stats_entry backgroundcolor="[darkestGrey]" textcontent="{playercoretemptitle|once}" valuecontent="{playercoretemp}" />
+				<player_stats_entry backgroundcolor="[darkGrey]"    textcontent="{playerzombiekillstitle|once}" valuecontent="{playerzombiekills}" />
+				<player_stats_entry backgroundcolor="[darkestGrey]" textcontent="{playerpvpkillstitle|once}" valuecontent="{playerpvpkills}" />
+				<player_stats_entry backgroundcolor="[darkGrey]"    textcontent="{playerdeathstitle|once}" valuecontent="{playerdeaths}" />
+				<player_stats_entry backgroundcolor="[darkestGrey]" textcontent="{playertravelledtitle|once}" valuecontent="{playertravelled}" />
+				<player_stats_entry backgroundcolor="[darkGrey]"    textcontent="{playeritemscraftedtitle|once}" valuecontent="{playeritemscrafted}" />
+				<player_stats_entry backgroundcolor="[darkestGrey]" textcontent="{playerlongestlifetitle|once}" valuecontent="{playerlongestlife}" />
+				<player_stats_entry backgroundcolor="[darkGrey]"    textcontent="{playercurrentlifetitle|once}" valuecontent="{playercurrentlife}" />
+				<player_stats_entry backgroundcolor="[darkestGrey]" textcontent="{playerxptonextleveltitle|once}" valuecontent="{playerxptonextlevel}" />
+				<player_stats_entry backgroundcolor="[darkGrey]"    textcontent="{playerlootstagetitle|once}" valuecontent="{playerlootstage}" />
+				<player_stats_entry backgroundcolor="[darkestGrey]" textcontent="" valuecontent="" />
+				<player_stats_entry backgroundcolor="[darkGrey]"    textcontent="" valuecontent="" />
+				<player_stats_entry backgroundcolor="[darkestGrey]" textcontent="" valuecontent="" />
+				<player_stats_entry backgroundcolor="[darkGrey]"    textcontent="" valuecontent="" />
+				<player_stats_entry backgroundcolor="[darkestGrey]" textcontent="" valuecontent="" />
+				<player_stats_entry backgroundcolor="[darkGrey]"    textcontent="" valuecontent="" />
+				<player_stats_entry backgroundcolor="[darkestGrey]" textcontent="" valuecontent="" />
+				<player_stats_entry backgroundcolor="[darkGrey]"    textcontent="" valuecontent="" />
+				<player_stats_entry backgroundcolor="[darkestGrey]" textcontent="" valuecontent="" />
+			</grid>
+			<grid visible="{showcore}" depth="0" pos="324,-46" width="353" cols="1" cell_height="30" repeat_content="false" arrangement="vertical">
+				<player_stats_generic_entry backgroundcolor="[darkestGrey]" index="1" />
+				<player_stats_generic_entry backgroundcolor="[darkGrey]"    index="2" />
+				<player_stats_generic_entry backgroundcolor="[darkestGrey]" index="3" />
+				<player_stats_generic_entry backgroundcolor="[darkGrey]"    index="4" />
+				<player_stats_generic_entry backgroundcolor="[darkestGrey]" index="5" />
+				<player_stats_generic_entry backgroundcolor="[darkGrey]"    index="6" />
+				<player_stats_generic_entry backgroundcolor="[darkestGrey]" index="7" />
+				<player_stats_generic_entry backgroundcolor="[darkGrey]"    index="8" />
+				<player_stats_generic_entry backgroundcolor="[darkestGrey]" index="9" />
+				<player_stats_generic_entry backgroundcolor="[darkGrey]"    index="10" />
+				<player_stats_generic_entry backgroundcolor="[darkestGrey]" index="11" />
+				<player_stats_generic_entry backgroundcolor="[darkGrey]"    index="12" />
+				<player_stats_generic_entry backgroundcolor="[darkestGrey]" index="13" />
+				<player_stats_generic_entry backgroundcolor="[darkGrey]"    index="14" />
+				<player_stats_generic_entry backgroundcolor="[darkestGrey]" index="15" />
+				<player_stats_generic_entry backgroundcolor="[darkGrey]"    index="16" />
+				<player_stats_generic_entry backgroundcolor="[darkestGrey]" index="17" />
+				<player_stats_generic_entry backgroundcolor="[darkGrey]"    index="18" />
+				<player_stats_generic_entry backgroundcolor="[darkestGrey]" index="19" />
+				<player_stats_generic_entry backgroundcolor="[darkGrey]"    index="20" />
+				<player_stats_generic_entry backgroundcolor="[darkestGrey]" index="21" />
+				<player_stats_generic_entry backgroundcolor="[darkGrey]"    index="22" />
+				<player_stats_generic_entry backgroundcolor="[darkestGrey]" index="23" />
+			</grid>
+		</window>
+		<window name="ActiveBuffsWindow" width="0" height="0" panel="Left" cursor_area="true" >
+			<panel name="content" depth="0" pos="0,0" disableautobackground="true" >
+				<grid depth="0" name="buffs" rows="1" cols="1" pos="0,0" cell_width="0" cell_height="0" repeat_content="true" controller="ActiveBuffList">
+					<active_buff_entry />
+				</grid>
+			</panel>
+		</window>
+    </append>
+</Config>
